@@ -9,7 +9,7 @@ import com.example.domain.model.DNote;
 
 import java.util.List;
 
-public class Precenter implements IUseCase.callback<DNote> {
+public class Precenter implements IUseCase.callback<DNote>,IFireData {
     private GetNotes getNotes;
     private Intractor intractor;
     public Precenter(Context context)
@@ -20,5 +20,10 @@ public class Precenter implements IUseCase.callback<DNote> {
     @Override
     public void getNotes(List<DNote> list) {
 
+    }
+
+    @Override
+    public void GetDataFromViewForInsert(String note, Long date) {
+        getNotes.getDataFromPrecenterForInsert(note,date);
     }
 }
