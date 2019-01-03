@@ -1,4 +1,4 @@
-package com.example.jarvis.notejarvis;
+package com.example.jarvis.notejarvis.view;
 
 import android.os.Build;
 import android.support.v7.app.AppCompatActivity;
@@ -8,6 +8,8 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.EditText;
+
+import com.example.jarvis.notejarvis.R;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
