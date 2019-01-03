@@ -14,4 +14,9 @@ public class GetNotes implements IUseCase<DNote> {
     public void execute(callback callback) {
         callback.getNotes(iRepository.getNotesFromApi());
     }
+
+    @Override
+    public void getDataFromPrecenterForInsert(String note, Long date) {
+        iRepository.getDataForInsert(note,date);
+    }
 }

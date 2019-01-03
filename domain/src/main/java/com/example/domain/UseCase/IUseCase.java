@@ -9,4 +9,5 @@ public interface IUseCase<N> {
         void getNotes(List<N> list);
     }
     void execute(callback callback);
+    void getDataFromPrecenterForInsert(String note,Long date);
 }
