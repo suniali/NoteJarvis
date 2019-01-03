@@ -10,6 +10,7 @@ import android.view.MenuItem;
 import android.widget.EditText;
 
 import com.example.jarvis.notejarvis.R;
+import com.example.jarvis.notejarvis.precenter.Precenter;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -22,6 +23,7 @@ public class MainActivity extends AppCompatActivity {
 
     @BindView(R.id.txt_note)
     EditText txt_note;
+    private Precenter precenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,11 +31,16 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         ButterKnife.bind(this);
+
+        precenter=new Precenter(this);
+
     }
     @OnClick(R.id.img_add)
     public void onClick_Img_Add()
     {
-
+        String str_note=txt_note.getText().toString();
+        Long date=System.currentTimeMillis();
+        precenter.GetDataFromViewForInsert(str_note,date);
     }
 
 
