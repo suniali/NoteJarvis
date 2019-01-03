@@ -6,6 +6,9 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="titleTextColor">@color/colorActionBarText</item>
+        <item name="android:textColorHint">@color/colorLightHint</item>
+        <item name="colorControlNormal">@color/colorAccent</item>
     </style>
 
 </resources>
