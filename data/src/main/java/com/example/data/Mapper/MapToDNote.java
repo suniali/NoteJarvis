@@ -26,9 +26,8 @@ public class MapToDNote {
         List<DNote> dNoteList=new ArrayList<>();
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
             aNotes.parallelStream()
-                    .forEach(aNote -> {
-                        dNoteList.add(transform(aNote));
-                    });
+                    .forEach(aNote ->
+                            dNoteList.add(transform(aNote)));
         }else
         {
             for (ANote aNote:aNotes)
