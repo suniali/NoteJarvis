@@ -11,6 +11,8 @@ import android.widget.TextView;
 import com.example.jarvis.notejarvis.R;
 import com.example.jarvis.notejarvis.model.Note;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.List;
 
 import butterknife.BindView;
@@ -27,7 +29,7 @@ public class MyRecyclerView extends RecyclerView.Adapter<MyRecyclerView.MyHolder
     @NonNull
     @Override
     public MyHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-        View view=inflater.inflate(R.layout.note_row,viewGroup);
+        View view=inflater.inflate(R.layout.note_row,viewGroup,false);
         return new MyHolder(view);
     }
 
@@ -36,7 +38,13 @@ public class MyRecyclerView extends RecyclerView.Adapter<MyRecyclerView.MyHolder
         Note note=noteList.get(i);
 
         myHolder.textView_note.setText(note.getNote());
-        myHolder.textView_date.setText(String.valueOf(note.getDate()));
+
+        Calendar calendar=Calendar.getInstance();
+        calendar.setTimeInMillis(note.getDate());
+        String str_date=String.format("%s/%s/%s %s:%s",calendar.get(Calendar.YEAR),
+                calendar.get(Calendar.MONTH)+1,calendar.get(Calendar.DAY_OF_WEEK),
+                calendar.get(Calendar.HOUR),calendar.get(Calendar.MINUTE));
+        myHolder.textView_date.setText(str_date);
     }
 
     @Override
