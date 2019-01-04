@@ -30,14 +30,14 @@ public class Intractor implements IRepository {
         MapToDNote mapToDNote=new MapToDNote();
         List<DNote> dNotes=new ArrayList<>();
         for (ANote aNote:notes) {
-            DNote dNote=new DNote();    // TODO: 1/4/2019 why we can't use observable for ralm model and map othe class? 
+            DNote dNote=new DNote();    // TODO: 1/4/2019 why we can't use observable for ralm model and map othe class?
             dNote.setDate(aNote.getDate());
             dNote.setNote(aNote.getNote());
             dNotes.add(dNote);
             Log.d("Intractor", "----------Intractor----------" + aNote.getNote());
         }
 
-        return mapToDNote.transform(notes);
+        return dNotes;
     }
 
 
