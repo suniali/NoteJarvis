@@ -1,6 +1,7 @@
 package com.example.jarvis.notejarvis.view;
 
 import android.os.Build;
+import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -68,7 +69,14 @@ public class MainActivity extends AppCompatActivity implements IProvideData {
         Long date = System.currentTimeMillis();
         precenter.GetDataFromViewForInsert(str_note, date);
 
-        precenter.refreshData();
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                precenter.refreshData();
+                Log.d("MainActivity","xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx" +
+                        "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
+            }
+        },500);
 
     }
 
@@ -122,6 +130,13 @@ public class MainActivity extends AppCompatActivity implements IProvideData {
             noteList.add(note);
             Log.d("MainActivity", "-------------------MainActivity----------" + note.getNote());
         }
+        /*if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+            notes.parallelStream()
+                    .sorted();
+        }else
+        {
+            //sort
+        }*/
         setupRecycler(notes);
     }
 }
